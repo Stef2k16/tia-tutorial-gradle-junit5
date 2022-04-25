@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id "com.teamscale" version "23.1.1"
+    id 'jacoco'
 }
 
 group 'eu.cqse.tutorials'
@@ -34,3 +36,37 @@ tasks.withType(Test) {
     }
 }
 
+teamscale {
+
+    server {
+        url = 'http://localhost:8080/'
+        userName = 'admin'
+        userAccessToken = 'q4tu9vfAAjQZ1peCpPvQHSrLi5CeIcGY'
+        project = 'tia-junit5'
+    }
+
+    report {
+        testwiseCoverage {
+            partition = 'Unit Tests'
+        }
+    }
+
+}
+
+tasks.register('tiaTests', com.teamscale.TestImpacted) {
+    useJUnitPlatform()
+    jacoco {
+        includes = ["tia.*"]
+    }
+}
+
+test {
+    finalizedBy jacocoTestReport // report is always generated after tests run
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+        csv.required = false
+    }
+}

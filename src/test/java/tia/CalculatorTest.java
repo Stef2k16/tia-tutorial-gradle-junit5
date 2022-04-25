@@ -16,4 +16,10 @@ public class CalculatorTest {
         assertEquals(1, new Calculator().minus(3, 2));
     }
 
+    @Test
+    public void testMoreComplexMethodA() {
+        Calculator calculator = new Calculator();
+        calculator.moreComplexMethod(false, true, 5);
+    }
+
 }
