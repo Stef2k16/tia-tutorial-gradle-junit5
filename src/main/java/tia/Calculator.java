@@ -11,8 +11,12 @@ public class Calculator {
     }
 
     public void moreComplexMethod(boolean pathA, boolean pathB, int iterations) {
+        SecondClass sc1 = new SecondClass(null);
+        SecondClass sc2 = new SecondClass("Hello");
+
         if (pathA) {
             System.out.println("In path A because pathA is true");
+            sc1.doSomething();
         } else {
             for (int i = 0; i < iterations; i++) {
                 System.out.println("Iterating in iteration" + i);
@@ -20,6 +24,7 @@ public class Calculator {
                     System.out.println("In path B because pathB is true");
                 }
             }
+            sc2.doSomething();
         }
     }
 
