@@ -10,6 +10,9 @@ public class Calculator {
         return a + b;
     }
 
+    /**
+     * Partially covered.
+     */
     public void moreComplexMethod(boolean pathA, boolean pathB, int iterations) {
         SecondClass sc1 = new SecondClass(null);
         SecondClass sc2 = new SecondClass("Hello");
@@ -33,6 +36,18 @@ public class Calculator {
                 }
             }
             sc2.doSomething();
+        }
+    }
+
+    /**
+     * Not covered.
+     */
+    private void uncoveredMethod() {
+        final String log = "uncovered";
+        if (true) {
+            System.out.println(log);
+        } else {
+            System.out.println("You can't reach me");
         }
     }
 
