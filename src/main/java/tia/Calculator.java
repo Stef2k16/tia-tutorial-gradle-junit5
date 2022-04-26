@@ -23,6 +23,14 @@ public class Calculator {
                 if (pathB) {
                     System.out.println("In path B because pathB is true");
                 }
+                if (i > 10) {
+                    try {
+                        Thread.sleep(5);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("Big index");
+                }
             }
             sc2.doSomething();
         }
